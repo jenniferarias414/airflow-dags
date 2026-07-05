@@ -27,7 +27,7 @@ GitHub Repository
 ## Current Status
 
 - [x] GitHub fork created
-- [ ] S3 buckets created
+- [x] S3 buckets created
 - [ ] CodePipeline created
 - [ ] Code synced from GitHub to S3
 - [ ] MWAA / Airflow setup
