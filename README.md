@@ -6,6 +6,7 @@ This project demonstrates a cloud-based dataflow pipeline using GitHub, AWS Code
 
 ![Architecture](docs/assets/architecture-overview.svg)
 
+
 ## Project Overview
 
 The project begins by forking an Airflow DAG repository into a personal GitHub account. AWS CodePipeline is then configured to automatically sync the repository contents into an S3 bucket. That S3 location is later used by Amazon MWAA / Airflow to run DAGs.
