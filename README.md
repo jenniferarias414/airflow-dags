@@ -48,7 +48,7 @@ GitHub Repository
 - [x] Code synced from GitHub to S3
 - [x] MWAA / Airflow setup
 - [x] Kinesis setup
-- [ ] Athena query validation
+- [x] Athena query validation
 - [ ] Cleanup completed
 
 ## Main Learning Goals
@@ -69,3 +69,18 @@ GitHub Repository
 | Kinesis Data Streams | Receives streaming records |
 | Kinesis Firehose | Delivers records to S3 |
 | Athena | Queries S3 data using SQL |
+
+
+## Athena Query Validation
+
+Athena was used to query Firehose-delivered JSON data stored in S3.
+
+```text
+Firehose output in S3
+→ Glue/Athena table metadata
+→ Athena SQL query
+→ Athena query results written to S3
+```
+
+This validates that the streamed data did not only land in S3, but became queryable using SQL through Athena.
+
