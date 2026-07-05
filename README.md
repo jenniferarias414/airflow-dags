@@ -46,8 +46,8 @@ GitHub Repository
 - [x] S3 buckets created
 - [x] CodePipeline created
 - [x] Code synced from GitHub to S3
-- [ ] MWAA / Airflow setup
-- [ ] Kinesis setup
+- [x] MWAA / Airflow setup
+- [x] Kinesis setup
 - [ ] Athena query validation
 - [ ] Cleanup completed
 
