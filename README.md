@@ -28,8 +28,8 @@ GitHub Repository
 
 - [x] GitHub fork created
 - [x] S3 buckets created
-- [ ] CodePipeline created
-- [ ] Code synced from GitHub to S3
+- [x] CodePipeline created
+- [x] Code synced from GitHub to S3
 - [ ] MWAA / Airflow setup
 - [ ] Kinesis setup
 - [ ] Athena query validation
