@@ -1,0 +1,87 @@
+<svg width="1300" height="620" viewBox="0 0 1300 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#111827"/>
+    </marker>
+    <style>
+      .bg { fill: #ffffff; }
+      .section { fill: #eef2ff; stroke: #6366f1; stroke-width: 3; rx: 18; }
+      .box { fill: #ffffff; stroke: #374151; stroke-width: 2.3; rx: 12; }
+      .aws { fill: #fff7ed; stroke: #f97316; stroke-width: 2.3; rx: 12; }
+      .data { fill: #ecfdf5; stroke: #10b981; stroke-width: 2.3; rx: 12; }
+      .query { fill: #fdf2f8; stroke: #db2777; stroke-width: 2.3; rx: 12; }
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: Arial, sans-serif; font-size: 17px; font-weight: 700; fill: #111827; }
+      .text { font-family: Arial, sans-serif; font-size: 14px; fill: #374151; }
+      .small { font-family: Arial, sans-serif; font-size: 13px; fill: #4b5563; }
+      .arrow { stroke: #111827; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1300" height="620" class="bg"/>
+
+  <text x="55" y="55" class="title">Airflow + Kinesis + Firehose Dataflow</text>
+
+  <rect x="45" y="85" width="355" height="310" class="section"/>
+  <text x="70" y="123" class="title">DAG Code Deployment</text>
+
+  <rect x="85" y="160" width="115" height="70" class="box"/>
+  <text x="113" y="188" class="label">GitHub</text>
+  <text x="98" y="211" class="small">airflow-dags repo</text>
+
+  <rect x="235" y="160" width="130" height="70" class="box"/>
+  <text x="256" y="188" class="label">CodePipeline</text>
+  <text x="263" y="211" class="small">syncs repo</text>
+
+  <rect x="160" y="285" width="145" height="75" class="data"/>
+  <text x="214" y="314" class="label">S3</text>
+  <text x="178" y="337" class="small">DAG/code bucket</text>
+
+  <line x1="200" y1="195" x2="235" y2="195" class="arrow"/>
+  <line x1="300" y1="230" x2="250" y2="285" class="arrow"/>
+
+  <rect x="460" y="250" width="175" height="90" class="aws"/>
+  <text x="507" y="282" class="label">MWAA</text>
+  <text x="485" y="307" class="text">Apache Airflow</text>
+  <text x="480" y="328" class="small">runs DAG tasks</text>
+
+  <line x1="305" y1="322" x2="460" y2="295" class="arrow"/>
+
+  <rect x="705" y="115" width="170" height="90" class="box"/>
+  <text x="747" y="148" class="label">API Source</text>
+  <text x="733" y="173" class="text">JSONPlaceholder</text>
+  <text x="735" y="193" class="small">user posts data</text>
+
+  <line x1="635" y1="275" x2="705" y2="170" class="arrow"/>
+
+  <rect x="705" y="285" width="185" height="90" class="aws"/>
+  <text x="745" y="318" class="label">Kinesis</text>
+  <text x="735" y="343" class="text">Data Stream</text>
+  <text x="730" y="363" class="small">receives API records</text>
+
+  <line x1="635" y1="300" x2="705" y2="330" class="arrow"/>
+
+  <rect x="955" y="285" width="185" height="90" class="aws"/>
+  <text x="1002" y="318" class="label">Firehose</text>
+  <text x="985" y="343" class="text">Delivery Stream</text>
+  <text x="982" y="363" class="small">buffers and writes data</text>
+
+  <line x1="890" y1="330" x2="955" y2="330" class="arrow"/>
+
+  <rect x="955" y="440" width="185" height="90" class="data"/>
+  <text x="1030" y="473" class="label">S3</text>
+  <text x="990" y="498" class="text">user-posts/ output</text>
+  <text x="995" y="518" class="small">delivered JSON records</text>
+
+  <line x1="1048" y1="375" x2="1048" y2="440" class="arrow"/>
+
+  <rect x="1170" y="440" width="110" height="90" class="query"/>
+  <text x="1192" y="473" class="label">Athena</text>
+  <text x="1190" y="498" class="small">SQL queries</text>
+
+  <line x1="1140" y1="485" x2="1170" y2="485" class="arrow"/>
+
+  <text x="55" y="460" class="title">Runtime Flow</text>
+  <text x="55" y="492" class="text">CodePipeline deploys DAG code to S3. MWAA reads the DAGs from S3 and runs the Airflow workflow.</text>
+  <text x="55" y="520" class="text">The DAG calls an API, writes records to Kinesis Data Streams, Firehose delivers records to S3, and Athena can query the output files.</text>
+</svg>

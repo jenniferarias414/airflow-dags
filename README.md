@@ -7,6 +7,22 @@ This project demonstrates a cloud-based dataflow pipeline using GitHub, AWS Code
 ![Architecture](docs/assets/architecture-overview.svg)
 
 
+
+## Runtime Dataflow Architecture
+
+![Airflow Kinesis Firehose Architecture](docs/assets/kinesis-mwaa-flow.svg)
+
+This section of the project adds the runtime data movement layer:
+
+```text
+Airflow DAG
+→ API data
+→ Kinesis Data Stream
+→ Firehose Delivery Stream
+→ S3 user-posts output
+→ Athena query layer
+```
+
 ## Project Overview
 
 The project begins by forking an Airflow DAG repository into a personal GitHub account. AWS CodePipeline is then configured to automatically sync the repository contents into an S3 bucket. That S3 location is later used by Amazon MWAA / Airflow to run DAGs.
